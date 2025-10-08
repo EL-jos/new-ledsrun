@@ -1,0 +1,76 @@
+@import url(./fonts.css);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: rgb(245, 154, 87);
+    --secondary: rgb(224, 234, 240);
+    --white: #fff;
+    --succes: #459647;
+    --danger: #E22D2D;
+    --el-text-font: "Work Sans";
+    --el-title-font: "Work Sans";
+    --el-alternative-font: "Work Sans";
+    --font-size: 15px;
+    --el-text-color: #777;
+    --el-title-color: #242424;
+    --el-btn-defaut-color: #333;
+    --el-btn-accent-color: #333;
+}
+
+ul{
+    list-style: none;
+}
+
+button{
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.el-content-area{
+    max-width: 1400px;
+    width: 100%;
+}
+
+.el-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.el-title {
+    font-size: 22px;
+    font-family: Urbanist;
+    font-weight: 700;
+}
+
+.el-legend {
+    font-size: 14px;
+    font-family: "Work Sans";
+    font-weight: 400;
+    color: rgb(119, 119, 119);
+}
+
+.el-center-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.el-badge.el-danger{
+    background-color: #E22D2D;
+}.el-badge.el-warning {
+    background-color: var(--primary);
+}.el-badge.el-success {
+    background-color: var(--succes);
+}
+
+
