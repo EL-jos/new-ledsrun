@@ -18,5 +18,17 @@ $('#el-blogs .owl-carousel').owlCarousel({
     loop: true,
     nav: false,
     dots: true,
-    margin: 10
+    margin: 10,
+    responsive: {
+        768: {
+            items: 2
+        },
+        992: {
+            items: 3
+        },
+        1366: {
+            items: 4,
+            dots: false
+        }
+    }
 });
