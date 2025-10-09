@@ -1,4 +1,4 @@
-$('#el-hero-sliders .owl-carousel').owlCarousel({
+$('#el-hero-sliders.owl-carousel').owlCarousel({
     items: 1,
     loop: true,
     nav: true,
@@ -17,6 +17,6 @@ $('#el-blogs .owl-carousel').owlCarousel({
     items: 1,
     loop: true,
     nav: false,
-    dots: false,
+    dots: true,
     margin: 10
 });
