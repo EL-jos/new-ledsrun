@@ -103,7 +103,7 @@
 
 #el-hero-sliders .el-slider .el-content {
     position: relative;
-    padding: 2rem 1rem 0 5rem;
+    padding: 2rem 1rem 0 3rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -130,6 +130,7 @@
 
 #el-hero-sliders .el-content .el-container-top {
     margin-bottom: 8rem;
+    opacity: 0;
 }
 
 #el-hero-sliders .el-container-top h4 {
@@ -160,12 +161,14 @@
     color: rgba(36, 36, 36, 0.8);
     font-size: 1.8rem;
     font-weight: 700;
+    opacity: 0;
 }
 
 #el-hero-sliders .el-container-bottom {
     display: flex;
     align-items: center;
     gap: 1rem;
+    opacity: 0;
 }
 
 #el-hero-sliders .el-container-bottom a {
@@ -956,4 +959,16 @@
     color: #333;
     z-index: 3;
     border-radius: 50%;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    transform: translateY(40px);
+}
+
+#el-scrollToTop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }

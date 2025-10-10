@@ -255,6 +255,13 @@
     }
 
     #el-hero-sliders .el-slider .el-content {
-        padding: 7rem 7rem 0;
+        padding: 4rem 4rem 0;
+    }
+}
+
+@media all and (min-width: 1600px) {
+
+    #el-hero-sliders .el-slider .el-content {
+        padding: 0;
     }
 }
