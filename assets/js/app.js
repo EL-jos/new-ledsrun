@@ -24,7 +24,7 @@ $(document).ready(function () {
         autoplay: true,
         autoplaySpeed: 1000,
         smartSpeed: 1500,
-        autoplayHoverPause: true
+        autoplayHoverPause: false
     });
 
     $('.el-bestsellers .owl-carousel').owlCarousel({
@@ -144,8 +144,8 @@ $(document).ready(function () {
 
 let previousIndex = 0;
 let currentDirection = null;
+let previousSlider = null; // référence du slide précédent
 
-// Fonction pour déterminer la direction
 function getDirection(currentIndex, prevIndex, total) {
     if ((currentIndex > prevIndex && currentIndex - prevIndex < total / 2) ||
         (prevIndex - currentIndex > total / 2)) {
@@ -155,7 +155,6 @@ function getDirection(currentIndex, prevIndex, total) {
     }
 }
 
-// Animation du slider actif
 function animateCurrentSlide(direction = 'next') {
     const activeSlider = document.querySelector('.owl-item.active .el-slider');
     if (!activeSlider) return;
@@ -163,7 +162,6 @@ function animateCurrentSlide(direction = 'next') {
     const translateXValue = direction === 'next' ? '100px' : '-100px';
     const config = { duration: 1300, easing: "easeOutExpo" };
 
-    // Animation du top
     anime({
         targets: activeSlider.querySelector('.el-container-top'),
         translateY: ["-50px", 0],
@@ -173,7 +171,6 @@ function animateCurrentSlide(direction = 'next') {
         duration: config.duration
     });
 
-    // Animation des h2 avec décalage
     anime({
         targets: activeSlider.querySelectorAll('.el-container-middle h2'),
         translateY: ["50px", 0],
@@ -184,7 +181,6 @@ function animateCurrentSlide(direction = 'next') {
         delay: (el, i) => i * 100
     });
 
-    // Animation du bottom
     anime({
         targets: activeSlider.querySelector('.el-container-bottom'),
         translateY: ["50px", 0],
@@ -195,11 +191,13 @@ function animateCurrentSlide(direction = 'next') {
     });
 }
 
-// Initialiser la 1ère animation
-animateCurrentSlide('next');
-
+// 🟢 On attend l'initialisation du carrousel avant la 1ère animation
 jQuery('#el-hero-sliders').on('initialized.owl.carousel', function (event) {
     previousIndex = event.item.index;
+    previousSlider = document.querySelector('.owl-item.active');
+
+    // Lancer l’animation du premier slide après un petit délai
+    setTimeout(() => animateCurrentSlide('next'), 300);
 });
 
 jQuery('#el-hero-sliders').on('translate.owl.carousel', function (event) {
@@ -213,31 +211,26 @@ jQuery('#el-hero-sliders').on('translate.owl.carousel', function (event) {
     previousIndex = currentIndex;
 });
 
-jQuery('#el-hero-sliders').on('translated.owl.carousel', function (event) {
-    //setTimeout(() => animateCurrentSlide(currentDirection), 1000);
-    const currentIndex = event.item.index;
-    const total = event.item.count;
-
-    // Récupérer le slider précédent
-    const previousSlider = document.querySelector(`.owl-item:nth-child(${previousIndex}) .el-slider`);
-
+jQuery('#el-hero-sliders').on('translated.owl.carousel', function () {
     if (previousSlider) {
         let top = previousSlider.querySelector('.el-container-top');
         resetCSS(top);
         let middle = previousSlider.querySelectorAll('.el-container-middle h2');
         resetCSS(middle);
         let bottom = previousSlider.querySelector('.el-container-bottom');
-        resetCSS(bottom)
+        resetCSS(bottom);
     }
-    
+
+    // Mettre à jour la référence du slider précédent
+    previousSlider = document.querySelector('.owl-item.active');
 });
 
-// Réinitialiser les styles CSS pour un élément ou plusieurs
 function resetCSS(elements) {
+    if (!elements) return;
     if (elements.length) {
         elements.forEach(el => {
             el.style.opacity = 0;
-            el.style.transform = 'translateY(50px) translateX(100px)'; // ou -50px selon le cas
+            el.style.transform = 'translateY(50px) translateX(100px)';
         });
     } else {
         elements.style.opacity = 0;
