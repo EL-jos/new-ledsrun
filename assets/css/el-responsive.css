@@ -149,6 +149,7 @@
 
     #el-main-page {
         padding-bottom: 0;
+        margin-top: 166px;
     }
 
     #el-scrollToTop {
@@ -230,7 +231,9 @@
         display: none;
     }
 
-    #el-header-page .el-top {
+    #el-header-page .el-top,
+    #el-header-page .el-middle,
+    #el-header-page .el-bottom {
         display: flex;
     }
 }
@@ -271,5 +274,13 @@
 
     #el-hero-sliders .el-slider .el-content {
         padding: 0;
+    }
+}
+
+@media all and (min-width: 1920px){
+    #el-header-page{
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 
+        'Lucida Grande', 'Lucida Sans Unicode', 
+        Geneva, Verdana, sans-serif;
     }
 }

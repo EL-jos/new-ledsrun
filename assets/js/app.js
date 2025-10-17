@@ -1,4 +1,59 @@
 $(document).ready(function () {
+
+    /* MENU */
+    const lightbox = document.querySelector('#el-lightbox');
+    lightbox.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        if (e.target === lightbox) {
+            lightbox.classList.remove('el-active');
+        }
+    });
+    const openMenuPhone = document.querySelector('#el-header-page .el-menu-bar-phone #el-open-menu-phone');
+    openMenuPhone.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        lightbox.classList.add('el-active')
+    })
+    const menuControls = document.querySelectorAll("#el-lightbox .el-controls-menu a");
+    const indicator = document.querySelector('#el-lightbox .el-controls-menu .el-indicator');
+    const menuTabsContent = document.querySelectorAll('#el-lightbox ul');
+    menuControls.forEach((menuControl, index) => {
+
+        menuControl.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            menuControls.forEach(item => item.classList.remove('el-active'));
+            menuControl.classList.add('el-active');
+
+            switch (index) {
+                case 1:
+                    indicator.style.left = '50%';
+                    break;
+
+                default:
+                    indicator.style.left = '0';
+                    break;
+            }
+
+            menuTabsContent.forEach(item => {
+                item.style.display = 'none';
+                item.style.opacity = 0;
+            });
+
+            menuTabsContent.forEach(item => {
+                if (item.getAttribute('data-tab') === menuControl.getAttribute('data-tab')) {
+                    item.style.display = 'flex';
+                    item.style.opacity = 1;
+                }
+            });
+
+        })
+
+    })
+
+
+
     const $scrollBtn = $('#el-scrollToTop');
 
     // Affiche ou masque le bouton quand on scrolle
@@ -88,7 +143,7 @@ $(document).ready(function () {
             //delay: (el, i) => 50 + i * 80,
             offset: 0
         }); */
-   
+
     /* // Animation du slider actif
     function animateCurrentSlide() {
         const activeSlider = document.querySelector('.owl-item.active .el-slider'); // Owl ajoute la classe 'active' à .owl-item

@@ -11,11 +11,24 @@
     z-index: 3;
 }
 
+#el-header-page .el-content-area {
+    padding: .5rem 1rem;
+}
+
 #el-header-page ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
+}
+
+#el-header-page .el-menu-bar-phone #el-open-menu-phone,
+#el-header-page .el-btn-cart {
+    cursor: pointer;
+}
+
+#el-header-page .el-logo img {
+    width: 210px;
 }
 
 #el-header-page .svg-inline--fa,
@@ -1122,14 +1135,18 @@
     text-transform: capitalize;
 }
 
-#el-header-page .el-container a:nth-child(4){
+#el-header-page .el-container a:nth-child(4) {
     background-color: #000;
     color: var(--white);
     position: relative;
-}#el-header-page .el-container a:nth-child(4) .svg-inline--fa{
+}
+
+#el-header-page .el-container a:nth-child(4) .svg-inline--fa {
     color: var(--white) !important;
     font-size: 16px;
-}#el-header-page .el-container a:nth-child(4) .el-badge{
+}
+
+#el-header-page .el-container a:nth-child(4) .el-badge {
     position: absolute;
     width: 18px;
     height: 18px;
@@ -1143,4 +1160,224 @@
     inset-inline-end: -7px;
     font-size: 11px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
+}
+
+#el-header-page .el-bottom .el-content-area {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 1rem 1rem;
+    gap: 1rem;
+}
+
+#el-header-page .el-bottom .el-left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-right: auto;
+    max-width: 880px;
+}
+
+#el-header-page .el-bottom li a {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    text-decoration: none;
+    font-family: Urbanist;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(51, 51, 51);
+    transition: all .25s ease;
+}
+
+#el-header-page .el-bottom li a:hover {
+    color: var(--primary);
+}
+
+#el-header-page .el-bottom li a img {
+    width: 18px;
+}
+
+#el-header-page .el-bottom a.el-right {
+    text-decoration: none;
+    font-family: "Work Sans";
+    font-size: 11px;
+    font-weight: 600;
+    color: rgb(51, 51, 51);
+    transition: all .25s ease;
+    background-color: #e0eaf0;
+    padding: .5rem 1rem;
+    border-radius: 2rem;
+}
+
+#el-header-page .el-top,
+#el-header-page .el-middle,
+#el-header-page .el-bottom {
+    display: none;
+}
+
+#el-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .7);
+    backdrop-filter: blur(4px);
+    z-index: 1001;
+    transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+        z-index 0s cubic-bezier(0.19, 1, 0.22, 1) 0.5s,
+        top 0s cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#el-lightbox.el-active {
+    top: 0;
+    opacity: 1;
+    pointer-events: unset;
+}
+
+#el-lightbox .el-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background: #fff;
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transition-delay: .5s;
+}
+
+#el-lightbox.el-active .el-container {
+    transform: none;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#el-lightbox .el-container form {
+    box-shadow: 0 -1px 9px rgba(0, 0, 0, 0.17);
+    position: relative;
+    height: 70px;
+}
+
+#el-lightbox form input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    background: none;
+    font-family: "Work Sans";
+    font-size: 14px;
+    font-weight: 600;
+    padding-left: 20px;
+}
+
+#el-lightbox form input::placeholder {
+    color: rgb(118, 118, 118);
+    font-family: "Work Sans";
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#el-lightbox form button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 46px;
+    height: 100%;
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 20px;
+    color: rgb(118, 118, 118);
+}
+
+#el-lightbox .el-controls-menu {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 55px;
+    position: relative;
+}
+
+#el-lightbox .el-controls-menu a {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .04);
+    text-decoration: none;
+    color: rgb(51, 51, 51, .5);
+    font-family: "Work Sans";
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all .25s ease;
+}
+
+#el-lightbox .el-controls-menu a.el-active {
+    background-color: rgba(0, 0, 0, .09);
+    color: rgba(51, 51, 51, 1);
+    font-weight: 500;
+}
+
+#el-lightbox .el-controls-menu .el-indicator {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 150px;
+    height: 2px;
+    background: var(--primary);
+    transition: all .25s ease;
+}
+
+/* #el-lightbox .el-controls-menu a:nth-child(2):hover+.el-indicator {
+    left: 50%;
+}
+
+#el-lightbox .el-controls-menu a:nth-child(1):hover+.el-indicator {
+    left: 0;
+} */
+#el-lightbox .el-controls-menu a span {
+    pointer-events: none;
+}
+
+#el-lightbox ul {
+    display: flex;
+    flex-direction: column;
+    transition: all 1s ease-in-out;
+    transition-delay: .5s;
+}
+
+#el-lightbox ul[data-tab="el-menu"] {
+    display: none;
+    opacity: 0;
+}
+
+#el-lightbox ul a {
+    display: flex;
+    gap: .45rem;
+    align-items: center;
+    justify-content: flex-start;
+    padding: .97rem 1.25rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .105);
+    font-size: 13px;
+    font-family: "Work Sans";
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: rgb(51, 51, 51);
+    transition: all .25s ease;
+}
+
+#el-lightbox ul a:hover,
+#el-lightbox ul a.el-active {
+    color: var(--primary);
+}
+
+#el-lightbox ul a img {
+    width: 18px;
 }
