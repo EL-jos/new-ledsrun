@@ -7,7 +7,9 @@
 }
 
 :root {
-    --primary: rgb(245, 154, 87);
+    --primary:
+        /* #6cbbe8 */
+        rgb(245, 154, 87);
     --secondary: rgb(224, 234, 240);
     --white: #fff;
     --succes: #459647;
@@ -22,23 +24,23 @@
     --el-btn-accent-color: #333;
 }
 
-ul{
+ul {
     list-style: none;
 }
 
-button{
+button {
     border: none;
     outline: none;
     background: none;
 }
 
-.el-content-area{
+.el-content-area {
     max-width: 1400px;
     width: 100%;
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
 }
 
-.el-img{
+.el-img {
     position: absolute;
     top: 0;
     left: 0;
@@ -60,17 +62,20 @@ button{
     color: rgb(119, 119, 119);
 }
 
-.el-center-box{
+.el-center-box {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.el-badge.el-danger{
+.el-badge.el-danger {
     background-color: #E22D2D;
-}.el-badge.el-warning {
-    background-color: var(--primary);
-}.el-badge.el-success {
-    background-color: var(--succes);
 }
 
+.el-badge.el-warning {
+    background-color: var(--primary);
+}
+
+.el-badge.el-success {
+    background-color: var(--succes);
+}

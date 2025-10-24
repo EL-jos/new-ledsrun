@@ -76,7 +76,7 @@ $(document).ready(function () {
         items: 1,
         loop: true,
         nav: true,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 1000,
         smartSpeed: 1500,
         autoplayHoverPause: false
@@ -87,7 +87,11 @@ $(document).ready(function () {
         loop: true,
         nav: false,
         dots: false,
-        margin: 10
+        margin: 10,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        smartSpeed: 1500,
+        autoplayHoverPause: true
     });
 
     $('#el-blogs .owl-carousel').owlCarousel({

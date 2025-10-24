@@ -106,7 +106,7 @@
 
 #el-hero-sliders .el-slider {
     height: 560px;
-    background-color: red;
+    /* background-color: red; */
     position: relative;
 }
 
@@ -150,7 +150,7 @@
     font-family: Urbanist;
     font-size: 1.15rem;
     color: rgba(36, 36, 36, .8);
-    width: 200px;
+    width: 280px;
 }
 
 #el-hero-sliders .el-container-top u {
@@ -194,6 +194,7 @@
     font-size: .8rem;
     font-weight: 700;
     text-decoration: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .15);
 }
 
 #el-hero-sliders .el-container-bottom p {
@@ -378,6 +379,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    overflow: hidden;
 }
 
 .el-bestseller .el-box-img {
@@ -387,7 +389,7 @@
 }
 
 .el-bestseller .el-box-img .el-img {
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .el-bestseller .el-box-img .el-container-top {
@@ -607,7 +609,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, .3);
     z-index: 1;
     transition: .25s ease;
 }
@@ -621,6 +623,8 @@
     width: 64px;
     height: 64px;
     overflow: hidden;
+    border-radius: 50%;
+    background-color: var(--white);
 }
 
 .el-brand .el-content {
@@ -1188,6 +1192,7 @@
     font-weight: 600;
     color: rgb(51, 51, 51);
     transition: all .25s ease;
+    text-transform: capitalize;
 }
 
 #el-header-page .el-bottom li a:hover {
